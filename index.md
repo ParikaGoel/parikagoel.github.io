@@ -1,5 +1,4 @@
-Here you can say lots of fun things about your site.
+I have started this blog as a one-stop destination for all the cool stuff I read or use in C++.
 
-Maybe say a some things about yourself.
-
-Or maybe what you plan to blog about.
+PS: If you feel like there is some concept which is very useful in C++ and is not present on this blog,
+please feel free to reach out and let me know.
