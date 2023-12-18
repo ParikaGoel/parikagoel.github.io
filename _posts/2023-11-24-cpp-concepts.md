@@ -7,17 +7,20 @@ To use concepts, include <concepts> header file in your program.
 
 ### Alternative to static_assert and type_traits
 we can put constraint on template parameters in following way as well
+
+```
 template <typename T>
 void print_number(T n)
 {
     static_assert(std::is_integral_v, "Must pass an integral value");
     std::cout << "n: " << n << "\n";
 }
+```
 
 ### Adding concept to function template
 Example using built-in concepts
 
-'''
+```
 template <typename T>
 requires std::integral<T>
 T sum(T a, T b)
@@ -32,11 +35,11 @@ std::cout << sum(a0,a1) << "\n"; // 30
 double b0 = 1.3;
 double b1 = 2.6;
 std::cout << sum(a0,a1) << "\n"; // Compiler Error: integral concept is not satisfied
-'''
+```
 
 
 Below are two other way/syntax to write the same concept
-'''
+```
 template <std::integral T>
 T sum(T a, T b)
 {
@@ -53,14 +56,14 @@ T add (T a, T b) -> requires std::integral<T>
 {
     return a + b;
 }
-'''
+```
 
 
 ### Custom Concepts
 
 Different ways to write custom concepts
 
-'''
+```
 template <typename T>
 concept MyIntegral = std::is_integral_v<T>;
 
@@ -78,12 +81,12 @@ concept Incrementable = requires(T a){
     a++;
     ++a;
 };
-'''
+```
 
 Once our custom concepts have been created, they can be used in the same way as we used built-in concepts
 Example Below:
 
-'''
+```
 #include <concepts>
 #include <iostream>
 #include <type_traits>
@@ -114,4 +117,4 @@ int main()
     //std::cout << add(c,d) << "\n"; // Compiler Error
     return 0;
 }
-'''
+```
