@@ -2,11 +2,10 @@
 
 Concepts are a mechanism to put constraints on template type parameters
 For example if we want our templated function to only be called with an int, we can use concepts
-and it will give compiler error in case any other data type is used.
-To use concepts, include <concepts> header file in your program.
+and it will give compiler error in case any other data type is used.   
+To use concepts, include "concepts" header file in your program.
 
-### Alternative to static_assert and type_traits
-we can put constraint on template parameters in following way as well
+The functionality provided by concepts can be achieved using static_assert and type_traits as well. For example, we can put constraint on template parameters in following way:
 
 ```
 template <typename T>
@@ -16,6 +15,8 @@ void print_number(T n)
     std::cout << "n: " << n << "\n";
 }
 ```
+
+Concepts provide a more neater and readable way to add these constraints.
 
 ### Adding concept to function template
 Example using built-in concepts
