@@ -104,27 +104,3 @@ struct Example{
 ```
 
 Value capture of this pointer was added in C++17 to avoid above mentioned problems. This means lambda gets its own copy of *this, allowing modifications without affecting the original object. Since C++17, use of [this] captures this by reference and use of [*this] captures this by value. 
-
-
-```
-struct Example{
-  int m_x = 0;
-
-  void func()
-  {
-    // m_x by ref, implicitly captures this by ref 
-    [&](){};
-
-    // m_x by ref, explicilty captures this by ref
-    // redundant 
-    [&, this](){};
-
-    // m_x by value, implicitly captures this by ref 
-    [=](){};
-
-    // error: not allowed
-    [=, this](){};
-  }
-
-};
-```
